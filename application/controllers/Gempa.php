@@ -33,10 +33,10 @@ class Gempa extends CI_Controller
         $this->load->view('gempa/dirasakan', $data);
     }
 
-    public function apiEndpoint()
+    public function berpotensiTsunamiTerkini()
     {
         $data['api_version'] = $this->_api_version;
 
-        $this->load->view('gempa/api_endpoint', $data);
+        $this->load->view('gempa/berpotensi_tsunami_terkini', $data);
     }
 }

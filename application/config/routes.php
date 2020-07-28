@@ -54,10 +54,11 @@ $route['404_override']          = '';
 $route['translate_uri_dashes']  = FALSE;
 
 // Gempa
-$route['gempa']['get']             = 'Gempa/m5Terkini';
+$route['gempa']['get']              = 'Gempa/m5Terkini';
 $route['gempa/m-5-terkini']['get']  = 'Gempa/m5Terkini';
 $route['gempa/m-5']['get']          = 'Gempa/m5';
 $route['gempa/dirasakan']['get']    = 'Gempa/dirasakan';
+$route['gempa/tsunami-terkini']['get'] = 'Gempa/berpotensiTsunamiTerkini';
 $route['gempa/api-endpoint']['get'] = 'Gempa/apiEndpoint';
 
 // API GEOJSON V1
