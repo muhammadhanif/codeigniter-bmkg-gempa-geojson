@@ -7,7 +7,7 @@
 <html>
 
 <head>
-    <title>Gempa M 5.0+ Terkini</title>
+    <title>Gempa Berpotensi Tsunami Terkini</title>
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -43,7 +43,7 @@
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                         <li class="nav-header">Menu Utama</li>
                         <li class="nav-item">
-                            <a href="<?= base_url("gempa"); ?>" class="nav-link active">
+                            <a href="<?= base_url("gempa"); ?>" class="nav-link">
                                 <i class="nav-icon fas fa-tachometer-alt"></i>
                                 <p>
                                     Gempa M 5.0+ Terkini
@@ -52,7 +52,7 @@
                         </li>
 
                         <li class="nav-item">
-                            <a href="<?= base_url("gempa/tsunami-terkini"); ?>" class="nav-link">
+                            <a href="<?= base_url("gempa/tsunami-terkini"); ?>" class="nav-link active">
                                 <i class="nav-icon fas fa-swimmer"></i>
                                 <p>
                                     Gempa & Tsunami Terkini
@@ -69,7 +69,7 @@
                             </a>
                         </li>
 
-                        <li class="nav-item active">
+                        <li class="nav-item">
                             <a href="<?= base_url("gempa/dirasakan"); ?>" class="nav-link">
                                 <i class="nav-icon fas fa-water"></i>
                                 <p>
@@ -114,7 +114,7 @@
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1>Gempa M 5.0+ Terkini</h1>
+                            <h1>Gempa Berpotensi Tsunami Terkini</h1>
                         </div>
 
                     </div>
@@ -127,9 +127,9 @@
                         <div class="col-12">
                             <div class="card card-outline card-danger">
                                 <div class="card-header">
-                                    <strong>Episentrum Gempa</strong>
+                                    <strong>Data Gempa</strong>
 
-                                    <a href="<?= base_url('api/' . $api_version  . '/geojson/gempa/m-5-terkini'); ?>" target="_blank">
+                                    <a href="<?= base_url('api/' . $api_version  . '/geojson/gempa/tsunami-terkini'); ?>" target="_blank">
                                         <button type="button" class="btn btn-success btn-sm float-right">GEOJSON</button>
                                     </a>
                                 </div>
@@ -157,20 +157,14 @@
                                                     <td id="koordinat"><small>Loading data</small></td>
                                                 </tr>
                                                 <tr>
-                                                    <th>Wilayah</th>
-                                                    <td>
-                                                        <ul>
-                                                            <li id="wilayah1"><small>Loading data</small></li>
-                                                            <li id="wilayah2"><small>Loading data</small></li>
-                                                            <li id="wilayah3"><small>Loading data</small></li>
-                                                            <li id="wilayah4"><small>Loading data</small></li>
-                                                            <li id="wilayah5"><small>Loading data</small></li>
-                                                        </ul>
-                                                    </td>
+                                                    <th>Area</th>
+                                                    <td id="area"><small>Loading data</small></td>
                                                 </tr>
                                                 <tr>
-                                                    <th>Potensi</th>
-                                                    <td id="potensi"><small>Loading data</small></td>
+                                                    <th>Detail</th>
+                                                    <td>
+                                                        <a target="_blank" href="#" id="linkdetail"><small>Loading data</small></a>
+                                                    </td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -182,7 +176,6 @@
                 </div>
             </section>
         </div>
-
         <footer class="main-footer text-center">
             <small>Sumber data: BMKG (Badan Meteorologi, Klimatologi, dan Geofisika)</small>
         </footer>
@@ -192,7 +185,7 @@
     <script src="<?= base_url('assets/leaflet/leaflet.js'); ?>"></script>
 
     <script>
-        var url = "<?= base_url('api/' . $api_version  . '/geojson/gempa/m-5-terkini'); ?>";
+        var url = "<?= base_url('api/' . $api_version  . '/geojson/gempa/tsunami-terkini'); ?>";
 
         var geojson = jQuery.ajax({
             type: "GET",
@@ -259,17 +252,13 @@
                 $('#tanggal').text(geojson.responseJSON.features[0].properties.tanggal + ' ' + geojson.responseJSON.features[0].properties.jam);
                 $('#magnitude').text(geojson.responseJSON.features[0].properties.magnitude);
                 $('#kedalaman').text(geojson.responseJSON.features[0].properties.kedalaman);
-                $('#koordinat').text(geojson.responseJSON.features[0].properties.bujur + ' ' + geojson.responseJSON.features[0].properties.lintang);
-                $('#potensi').text(geojson.responseJSON.features[0].properties.potensi);
-                $('#wilayah1').text(geojson.responseJSON.features[0].properties.wilayah1);
-                $('#wilayah2').text(geojson.responseJSON.features[0].properties.wilayah2);
-                $('#wilayah3').text(geojson.responseJSON.features[0].properties.wilayah3);
-                $('#wilayah4').text(geojson.responseJSON.features[0].properties.wilayah4);
-                $('#wilayah5').text(geojson.responseJSON.features[0].properties.wilayah5);
-                $("#eqmap").attr('src', geojson.responseJSON.features[0].properties.peta);
+                $('#koordinat').text(geojson.responseJSON.features[0].properties.bujur + ' BT ' + geojson.responseJSON.features[0].properties.lintang + ' LU');
+                $('#area').text(geojson.responseJSON.features[0].properties.area);
+                $('#linkdetail').text(geojson.responseJSON.features[0].properties.linkdetail);
+                $('#linkdetail').attr('href', geojson.responseJSON.features[0].properties.linkdetail);
 
                 $setView = [geojson.responseJSON.features[0].geometry.coordinates[1], geojson.responseJSON.features[0].geometry.coordinates[0]]
-                $zoom = 7;
+                $zoom = 6;
             } else {
                 $setView = [-1.263325, 118.606436];
                 $zoom = 4;
@@ -301,7 +290,7 @@
                 pointToLayer: function(feature, latlng) {
                     return L.circleMarker(latlng, {
                         title: '',
-                        radius: 7,
+                        radius: 10,
                         color: 'red'
                     }).bindTooltip('<b>Episentrum Gempa</b>');
                 }
