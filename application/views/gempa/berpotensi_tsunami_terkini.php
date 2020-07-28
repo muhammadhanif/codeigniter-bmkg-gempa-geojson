@@ -273,7 +273,7 @@
                 $('#tanggal').text(geojson.responseJSON.features[0].properties.tanggal + ' ' + geojson.responseJSON.features[0].properties.jam);
                 $('#magnitude').text(geojson.responseJSON.features[0].properties.magnitude);
                 $('#kedalaman').text(geojson.responseJSON.features[0].properties.kedalaman);
-                $('#koordinat').text(geojson.responseJSON.features[0].properties.bujur + ' BT ' + geojson.responseJSON.features[0].properties.lintang + ' LU');
+                $('#koordinat').text(geojson.responseJSON.features[0].properties.bujur + ' B ' + geojson.responseJSON.features[0].properties.lintang + ' L');
                 $('#area').text(geojson.responseJSON.features[0].properties.area);
                 $('#linkdetail').text(geojson.responseJSON.features[0].properties.linkdetail);
                 $('#linkdetail').attr('href', geojson.responseJSON.features[0].properties.linkdetail);
