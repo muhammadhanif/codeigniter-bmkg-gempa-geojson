@@ -4,7 +4,7 @@ Aplikasi ini dibangun dengan tujuan untuk melakukan konversi data gempa BMKG yan
 
 Aplikasi ini juga dilengkapi contoh penggunaan data [GeoJSON](https://tools.ietf.org/html/rfc7946) tersebut di pustaka JavaScript peta interaktif [Leaflet](https://leafletjs.com/).
 
-##### Data Gempa
+#### Data Gempa
 
 Berikut ini data gempa yang bersumber dari BMKG yang dikonversi dari XML ke [GeoJSON](https://tools.ietf.org/html/rfc7946):
 
@@ -15,11 +15,11 @@ Berikut ini data gempa yang bersumber dari BMKG yang dikonversi dari XML ke [Geo
 | 3.  |         [ 60 Gempabumi M 5.0+ ](https://data.bmkg.go.id/gempaterkini.xml)         |   <img src = "https://img.shields.io/badge/status-0%25-red" />   |   <img src = "https://img.shields.io/badge/status-0%25-red" />   |
 | 4.  |      [ 20 Gempabumi Dirasakan ](https://data.bmkg.go.id/gempadirasakan.xml)       |   <img src = "https://img.shields.io/badge/status-0%25-red" />   |   <img src = "https://img.shields.io/badge/status-0%25-red" />   |
 
-##### Sumber Data
+#### Sumber Data
 
 Semua data gempa yang digunakan dalam aplikasi ini diambil dari [BMKG (Badan Meteorologi, Klimatologi, dan Geofisika)](https://data.bmkg.go.id/gempabumi/).
 
-##### Donasi
+#### Donasi
 
 Jika kalian ingin berdonasi, silahkan menghubungi kami melalui jalur berikut ini:
 
