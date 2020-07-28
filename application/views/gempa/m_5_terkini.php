@@ -128,7 +128,7 @@
                         <div class="col-12">
                             <div class="card card-outline card-danger">
                                 <div class="card-header">
-                                    <strong>Episentrum Gempa</strong>
+                                    <strong>Data Gempa</strong>
 
                                     <a href="<?= base_url('api/' . $api_version  . '/geojson/gempa/m-5-terkini'); ?>" target="_blank">
                                         <button type="button" class="btn btn-success btn-sm float-right">GeoJSON</button>
