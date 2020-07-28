@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="<?= base_url('assets/fontawesome-free/css/all.min.css'); ?>" />
     <link rel="stylesheet" href="<?= base_url('assets/adminLTE/css/adminlte.min.css'); ?>" />
     <link rel="stylesheet" href="<?= base_url('assets/leaflet/leaflet.css'); ?>" />
+    <link rel="stylesheet" href="<?= base_url('assets/json-viewer/jquery.json-viewer.css'); ?>" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700">
 </head>
 
@@ -130,7 +131,7 @@
                                     <strong>Episentrum Gempa</strong>
 
                                     <a href="<?= base_url('api/' . $api_version  . '/geojson/gempa/m-5-terkini'); ?>" target="_blank">
-                                        <button type="button" class="btn btn-success btn-sm float-right">GEOJSON</button>
+                                        <button type="button" class="btn btn-success btn-sm float-right">GeoJSON</button>
                                     </a>
                                 </div>
                                 <div class="card-body p-0">
@@ -179,6 +180,25 @@
                             </div>
                         </div>
                     </div>
+
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="card">
+                                <div class="card-header">
+                                    <strong>GeoJSON View</strong>
+
+                                    <a href="<?= base_url('api/' . $api_version  . '/geojson/gempa/m-5-terkini'); ?>" target="_blank">
+                                        <button type="button" class="btn btn-success btn-sm float-right">GeoJSON</button>
+                                    </a>
+                                </div>
+                                <div class="card-body">
+                                    <div class="geojson">
+                                        <pre id="json-renderer"></pre>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </section>
         </div>
@@ -190,6 +210,7 @@
     <script src="<?= base_url('assets/jquery/jquery.min.js'); ?>"></script>
     <script src="<?= base_url('assets/adminLTE/js/adminlte.min.js'); ?>"></script>
     <script src="<?= base_url('assets/leaflet/leaflet.js'); ?>"></script>
+    <script src="<?= base_url('assets/json-viewer/jquery.json-viewer.js'); ?>"></script>
 
     <script>
         var url = "<?= base_url('api/' . $api_version  . '/geojson/gempa/m-5-terkini'); ?>";
@@ -274,6 +295,9 @@
                 $setView = [-1.263325, 118.606436];
                 $zoom = 4;
             }
+
+            // geojson view
+            $('#json-renderer').jsonViewer(geojson.responseJSON);
 
             // mymap
             var mymap = L.map("mapid", {

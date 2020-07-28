@@ -16,7 +16,7 @@ class GEOJSON_v1 extends CI_Model
         $this->_name           = "Muhammad Hanif";
         $this->_homepage       = "https://hanifmu.com";
         $this->_telegram       = "https://t.me/muhammad_hanif";
-        $this->_source_code    = "https://github.com/muhammadhanif/codeigniter-bmkg-gempa";
+        $this->_source_code    = "https://github.com/muhammadhanif/codeigniter-bmkg-gempa-geojson";
         $this->_bmkg           = "BMKG (Badan Meteorologi, Klimatologi, dan Geofisika)";
     }
 
