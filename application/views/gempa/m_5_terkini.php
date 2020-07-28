@@ -52,6 +52,15 @@
                         </li>
 
                         <li class="nav-item">
+                            <a href="<?= base_url("gempa/tsunami-terkini"); ?>" class="nav-link">
+                                <i class="nav-icon fas fa-swimmer"></i>
+                                <p>
+                                    Gempa & Tsunami Terkini
+                                </p>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
                             <a href="<?= base_url("gempa/m-5"); ?>" class="nav-link">
                                 <i class="nav-icon fas fa-wave-square"></i>
                                 <p>
@@ -116,7 +125,7 @@
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-12">
-                            <div class="card">
+                            <div class="card card-outline card-danger">
                                 <div class="card-header">
                                     <strong>Episentrum Gempa</strong>
 
@@ -126,19 +135,6 @@
                                 </div>
                                 <div class="card-body p-0">
                                     <div id="mapid" style="width: 100%; height: 400px;"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-12">
-                            <div class="card card-outline card-danger">
-                                <div class="card-header">
-                                    <strong>Data Gempa</strong>
-
-                                    <a href="<?= base_url('api/' . $api_version  . '/geojson/gempa/m-5-terkini'); ?>" target="_blank">
-                                        <button type="button" class="btn btn-success btn-sm float-right">API Endpoint</button>
-                                    </a>
                                 </div>
                                 <div class="card-body p-0">
                                     <div class="table-responsive">
