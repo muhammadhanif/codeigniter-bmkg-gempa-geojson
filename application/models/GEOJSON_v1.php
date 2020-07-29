@@ -23,7 +23,7 @@ class GEOJSON_v1 extends CI_Model
     public function getGempaM5Terkini()
     {
         $url    = 'https://data.bmkg.go.id/autogempa.xml';
-        $type   = 'Gempa M 5.0+ Terkini';
+        $type   = 'Gempabumi M 5.0+ Terkini';
 
         $bmkg   = $this->_data($url, $type);
 
@@ -134,7 +134,7 @@ class GEOJSON_v1 extends CI_Model
     public function getGempaDirasakan()
     {
         $url    = 'https://data.bmkg.go.id/gempadirasakan.xml';
-        $type   = '20 Gempabumi Dirasakan';
+        $type   = '30 Gempabumi Dirasakan';
 
         $bmkg   = $this->_data($url, $type);
 
@@ -188,7 +188,7 @@ class GEOJSON_v1 extends CI_Model
     public function getGempaTsunamiTerkini()
     {
         $url    = 'https://data.bmkg.go.id/lasttsunami.xml';
-        $type   = 'Gempa Berpotensi Tsunami Terkini';
+        $type   = 'Gempabumi Berpotensi Tsunami Terkini';
 
         $bmkg = $this->_data($url, $type);
 
