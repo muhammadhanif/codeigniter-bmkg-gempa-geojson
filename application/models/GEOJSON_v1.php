@@ -25,7 +25,7 @@ class GEOJSON_v1 extends CI_Model
         $url    = 'https://data.bmkg.go.id/autogempa.xml';
         $type   = 'Gempa M 5.0+ Terkini';
 
-        $bmkg   = json_decode(json_encode($this->_data($url, $type)), TRUE);
+        $bmkg   = $this->_data($url, $type);
 
         // creator
         $result['creator']['name']          = $this->_name;
@@ -35,8 +35,8 @@ class GEOJSON_v1 extends CI_Model
 
         // BMKG
         $result['data_source']['institution']   = $this->_bmkg;
-        $result['data_source']['type']          = 'Gempa M 5.0+ Terkini';
-        $result['data_source']['url']           = 'https://data.bmkg.go.id/autogempa.xml';
+        $result['data_source']['type']          = $type;
+        $result['data_source']['url']           = $url;
 
         // geojson
         $result['type']     = 'FeatureCollection';
@@ -79,9 +79,56 @@ class GEOJSON_v1 extends CI_Model
     public function getGempaM5()
     {
         $url    = 'https://data.bmkg.go.id/gempaterkini.xml';
-        $type   = 'Gempa M 5.0+';
+        $type   = '60 Gempabumi M 5.0+';
 
-        return $this->_data($url, $type);
+        $bmkg   = $this->_data($url, $type);
+
+        // creator
+        $result['creator']['name']          = $this->_name;
+        $result['creator']['homepage']      = $this->_homepage;
+        $result['creator']['telegram']      = $this->_telegram;
+        $result['creator']['source_code']   = $this->_source_code;
+
+        // BMKG
+        $result['data_source']['institution']   = $this->_bmkg;
+        $result['data_source']['type']          = $type;
+        $result['data_source']['url']           = $url;
+
+        // geojson
+        $result['type']     = 'FeatureCollection';
+        $result['features'] = array();
+
+        if ($bmkg['success']) {
+            // success
+            $result['success'] = true;
+
+            for ($i = 0; $i < count($bmkg['data']['gempa']); $i++) {
+                // type
+                $gempa['type'] = 'Feature';
+
+                //properties
+                $gempa['properties']['tanggal']     = $bmkg['data']['gempa'][$i]['Tanggal'];
+                $gempa['properties']['jam']         = $bmkg['data']['gempa'][$i]['Jam'];
+                $gempa['properties']['lintang']     = $bmkg['data']['gempa'][$i]['Lintang'];
+                $gempa['properties']['bujur']       = $bmkg['data']['gempa'][$i]['Bujur'];
+                $gempa['properties']['magnitude']   = $bmkg['data']['gempa'][$i]['Magnitude'];
+                $gempa['properties']['kedalaman']   = $bmkg['data']['gempa'][$i]['Kedalaman'];
+                $gempa['properties']['wilayah']     = $bmkg['data']['gempa'][$i]['Wilayah'];
+
+                // geometry
+                $coordinates = explode(',', $bmkg['data']['gempa'][$i]['point']['coordinates']);
+
+                $gempa['geometry']['type']          = 'Point';
+                $gempa['geometry']['coordinates']   = [floatval($coordinates[0]), floatval($coordinates[1])];
+
+                // tambahkan ke array $result['features']
+                array_push($result['features'], $gempa);
+            }
+        } else {
+            $result['success'] = false;
+        }
+
+        return $result;
     }
 
     public function getGempaDirasakan()
@@ -97,7 +144,7 @@ class GEOJSON_v1 extends CI_Model
         $url    = 'https://data.bmkg.go.id/lasttsunami.xml';
         $type   = 'Gempa Berpotensi Tsunami Terkini';
 
-        $bmkg = json_decode(json_encode($this->_data($url, $type)), TRUE);
+        $bmkg = $this->_data($url, $type);
 
         // creator
         $result['creator']['name']          = $this->_name;
@@ -167,7 +214,7 @@ class GEOJSON_v1 extends CI_Model
         } else {
             // success
             $result['success']  = true;
-            $result['data']     = simplexml_load_string($curl);
+            $result['data']     = json_decode(json_encode(simplexml_load_string($curl)), TRUE);
         }
 
         return $result;
