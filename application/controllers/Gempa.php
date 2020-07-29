@@ -39,4 +39,11 @@ class Gempa extends CI_Controller
 
         $this->load->view('gempa/berpotensi_tsunami_terkini', $data);
     }
+
+    public function apiEndpoint()
+    {
+        $data['api_version'] = $this->_api_version;
+
+        $this->load->view('gempa/api_endpoint', $data);
+    }
 }
