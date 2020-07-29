@@ -33,6 +33,12 @@ class ApiGeoJsonV1 extends CI_Controller
 
     public function gempaDirasakan()
     {
+
+        return $this->output->set_header('HTTP/1.0 200 OK')
+            ->set_header('HTTP/1.1 200 OK')
+            ->set_status_header(200)
+            ->set_content_type('application/json')
+            ->set_output(json_encode($this->geojson->getGempaDirasakan()));
     }
 
     public function gempaTsunamiTerkini()

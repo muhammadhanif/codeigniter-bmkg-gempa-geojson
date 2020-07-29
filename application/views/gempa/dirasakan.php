@@ -7,7 +7,7 @@
 <html>
 
 <head>
-    <title>60 Gempa M 5.0+</title>
+    <title>30 Gempa Dirasakan</title>
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -64,7 +64,7 @@
                         </li>
 
                         <li class="nav-item">
-                            <a href="<?= base_url("gempa/m-5"); ?>" class="nav-link active">
+                            <a href="<?= base_url("gempa/m-5"); ?>" class="nav-link">
                                 <i class="nav-icon fas fa-wave-square"></i>
                                 <p>
                                     60 Gempa M 5.0+
@@ -73,7 +73,7 @@
                         </li>
 
                         <li class="nav-item">
-                            <a href="<?= base_url("gempa/dirasakan"); ?>" class="nav-link">
+                            <a href="<?= base_url("gempa/dirasakan"); ?>" class="nav-link active">
                                 <i class="nav-icon fas fa-water"></i>
                                 <p>
                                     30 Gempa Dirasakan
@@ -117,7 +117,7 @@
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1>60 Gempa M 5.0+</h1>
+                            <h1>30 Gempa Dirasakan</h1>
                         </div>
 
                     </div>
@@ -199,7 +199,7 @@
     <script src="<?= base_url('assets/json-viewer/jquery.json-viewer.js'); ?>"></script>
 
     <script>
-        var url = "<?= base_url('api/' . $api_version  . '/geojson/gempa/m-5'); ?>";
+        var url = "<?= base_url('api/' . $api_version  . '/geojson/gempa/dirasakan'); ?>";
 
         var geojson = jQuery.ajax({
             type: "GET",
@@ -295,9 +295,9 @@
                         '<br />' +
                         '<b>Kedalaman: </b>' + feature.properties.kedalaman +
                         '<br />' +
-                        '<b>Tanggal: </b>' + feature.properties.tanggal + ' ' + feature.properties.jam +
+                        '<b>Tanggal: </b>' + feature.properties.tanggal +
                         '<br />' +
-                        '<b>Wilayah: </b>' + feature.properties.wilayah
+                        '<b>Keterangan: </b>' + feature.properties.keterangan
                     );
                 }
             }).addTo(mymap);
@@ -313,7 +313,7 @@
                     "url": "<?= base_url('assets/datatables/Indonesian.json'); ?>"
                 },
                 "ajax": {
-                    "url": "<?= base_url('api/' . $api_version  . '/geojson/gempa/m-5'); ?>",
+                    "url": "<?= base_url('api/' . $api_version  . '/geojson/gempa/dirasakan'); ?>",
                     "dataSrc": "features",
                     "deferRender": true
                 },
@@ -328,11 +328,7 @@
                         "sClass": "text-center"
                     }, {
                         "data": "properties.tanggal",
-                        "sClass": "text-center",
-                        "render": function(data, type, row) {
-                            return data +
-                                ' ' + row.properties.jam;
-                        }
+                        "sClass": "text-center"
                     },
                     {
                         "data": "properties.magnitude",
@@ -343,15 +339,11 @@
                         "sClass": "text-center"
                     },
                     {
-                        "data": "",
-                        "sClass": "text-center",
-                        "render": function(data, type, row) {
-                            return row.properties.lintang +
-                                ' ' + row.properties.bujur;
-                        }
+                        "data": "properties.posisi",
+                        "sClass": "text-center"
                     },
                     {
-                        "data": "properties.wilayah",
+                        "data": "properties.dirasakan",
                         "sClass": "text-center"
                     }
                 ]
