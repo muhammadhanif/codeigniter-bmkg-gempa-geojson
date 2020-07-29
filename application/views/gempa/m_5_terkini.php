@@ -65,21 +65,21 @@
                             <a href="<?= base_url("gempa/m-5"); ?>" class="nav-link">
                                 <i class="nav-icon fas fa-wave-square"></i>
                                 <p>
-                                    Gempa M 5.0+
+                                    60 Gempa M 5.0+
                                 </p>
                             </a>
                         </li>
 
-                        <li class="nav-item active">
+                        <li class="nav-item">
                             <a href="<?= base_url("gempa/dirasakan"); ?>" class="nav-link">
                                 <i class="nav-icon fas fa-water"></i>
                                 <p>
-                                    Gempa Dirasakan
+                                    20 Gempa Dirasakan
                                 </p>
                             </a>
                         </li>
 
-                        <li class="nav-item active">
+                        <li class="nav-item">
                             <a href="<?= base_url("gempa/api-endpoint"); ?>" class="nav-link">
                                 <i class="nav-icon fas fa-database"></i>
                                 <p>
@@ -129,10 +129,6 @@
                             <div class="card card-outline card-danger">
                                 <div class="card-header">
                                     <strong>Data Gempa</strong>
-
-                                    <a href="<?= base_url('api/' . $api_version  . '/geojson/gempa/m-5-terkini'); ?>" target="_blank">
-                                        <button type="button" class="btn btn-success btn-sm float-right">GeoJSON</button>
-                                    </a>
                                 </div>
                                 <div class="card-body p-0">
                                     <div id="mapid" style="width: 100%; height: 400px;"></div>
@@ -186,10 +182,6 @@
                             <div class="card">
                                 <div class="card-header">
                                     <strong>GeoJSON View</strong>
-
-                                    <a href="<?= base_url('api/' . $api_version  . '/geojson/gempa/m-5-terkini'); ?>" target="_blank">
-                                        <button type="button" class="btn btn-success btn-sm float-right">GeoJSON</button>
-                                    </a>
                                 </div>
                                 <div class="card-body">
                                     <div class="geojson">
