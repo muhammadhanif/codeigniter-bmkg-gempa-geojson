@@ -74,7 +74,7 @@
                             <a href="<?= base_url("gempa/dirasakan"); ?>" class="nav-link">
                                 <i class="nav-icon fas fa-water"></i>
                                 <p>
-                                    20 Gempa Dirasakan
+                                    30 Gempa Dirasakan
                                 </p>
                             </a>
                         </li>
