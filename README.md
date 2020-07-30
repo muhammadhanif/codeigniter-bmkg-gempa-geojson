@@ -8,12 +8,12 @@ Aplikasi ini juga dilengkapi contoh penggunaan data [GeoJSON](https://tools.ietf
 
 Berikut ini data gempa yang bersumber dari BMKG yang dikonversi dari XML ke [GeoJSON](https://tools.ietf.org/html/rfc7946):
 
-| No. |                                    Data Gempa                                     |                             GeoJSON                              |                             Leaflet                              |
-| :-: | :-------------------------------------------------------------------------------: | :--------------------------------------------------------------: | :--------------------------------------------------------------: |
-| 1.  |        [ Gempabumi M 5.0+ Terkini ](https://data.bmkg.go.id/autogempa.xml)        | <img src = "https://img.shields.io/badge/status-100%25-green" /> | <img src = "https://img.shields.io/badge/status-100%25-green" /> |
-| 2.  | [ Gempabumi Berpotensi Tsunami Terkini ](https://data.bmkg.go.id/lasttsunami.xml) | <img src = "https://img.shields.io/badge/status-100%25-green" /> | <img src = "https://img.shields.io/badge/status-100%25-green" /> |
-| 3.  |         [ 60 Gempabumi M 5.0+ ](https://data.bmkg.go.id/gempaterkini.xml)         |   <img src = "https://img.shields.io/badge/status-0%25-red" />   |   <img src = "https://img.shields.io/badge/status-0%25-red" />   |
-| 4.  |      [ 20 Gempabumi Dirasakan ](https://data.bmkg.go.id/gempadirasakan.xml)       |   <img src = "https://img.shields.io/badge/status-0%25-red" />   |   <img src = "https://img.shields.io/badge/status-0%25-red" />   |
+| No. |                                    Data Gempa                                     |                              GeoJSON                              |                              Leaflet                              |
+| :-: | :-------------------------------------------------------------------------------: | :---------------------------------------------------------------: | :---------------------------------------------------------------: |
+| 1.  |        [ Gempabumi M 5.0+ Terkini ](https://data.bmkg.go.id/autogempa.xml)        | <img src = "https://img.shields.io/badge/progres-100%25-green" /> | <img src = "https://img.shields.io/badge/progres-100%25-green" /> |
+| 2.  | [ Gempabumi Berpotensi Tsunami Terkini ](https://data.bmkg.go.id/lasttsunami.xml) | <img src = "https://img.shields.io/badge/progres-100%25-green" /> | <img src = "https://img.shields.io/badge/progres-100%25-green" /> |
+| 3.  |         [ 60 Gempabumi M 5.0+ ](https://data.bmkg.go.id/gempaterkini.xml)         | <img src = "https://img.shields.io/badge/progres-100%25-green" /> | <img src = "https://img.shields.io/badge/progres-100%25-green" /> |
+| 4.  |      [ 20 Gempabumi Dirasakan ](https://data.bmkg.go.id/gempadirasakan.xml)       | <img src = "https://img.shields.io/badge/progres-100%25-green" /> | <img src = "https://img.shields.io/badge/progres-100%25-green" /> |
 
 #### Sumber Data
 
