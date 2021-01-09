@@ -167,6 +167,11 @@
                                         </table>
                                     </div>
                                 </div>
+
+                                <div class="card-footer text-center">
+                                    Sumber Data: <a target="_blank" href="https://bmkg.go.id/">BMKG (Badan
+                                        Meteorologi, Klimatologi, dan Geofisika)</a>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -189,7 +194,9 @@
             </section>
         </div>
         <footer class="main-footer text-center">
-            <small>Sumber data: BMKG (Badan Meteorologi, Klimatologi, dan Geofisika)</small>
+            <strong>
+                DEVELOPED BY <a target="_blank" href="https://hanifmu.com">MUHAMMAD HANIF</a>
+            </strong>
         </footer>
     </div>
     <script src="<?= base_url('assets/jquery/jquery.min.js'); ?>"></script>
